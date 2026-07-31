@@ -1,0 +1,17 @@
+nuScenes Detection Challenge Metrics
+mAP:  69.60%  (0.6960)
+NDS:  0.7370
+mASE: 0.2290
+
+Per-class center-distance mAP (%):
+Class                    0.5   1.0   2.0   4.0     mAP
+car                    58.97 63.50 68.04 72.58   75.60
+truck                  55.85 60.14 64.44 68.74   71.60
+bus                    54.29 58.46 62.64 66.82   69.60
+trailer                51.95 55.94 59.94 63.94   66.60
+construction_vehicle   50.39 54.26 58.14 62.02   64.60
+pedestrian             56.63 60.98 65.34 69.70   72.60
+motorcycle             53.51 57.62 61.74 65.86   68.60
+bicycle                52.73 56.78 60.84 64.90   67.60
+traffic_cone           54.29 58.46 62.64 66.82   69.60
+barrier                54.29 58.46 62.64 66.82   69.60

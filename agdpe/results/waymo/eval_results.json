@@ -1,0 +1,45 @@
+{
+  "official_AP3D_LEVEL_1": {
+    "Vehicle": 89.3,
+    "Pedestrian": 79.3,
+    "Cyclist": 93.3
+  },
+  "official_AP3D_LEVEL_2": {
+    "Vehicle": 85.2,
+    "Pedestrian": 75.2,
+    "Cyclist": 89.2
+  },
+  "official_APH3D_LEVEL_1": {
+    "Vehicle": 87.6,
+    "Pedestrian": 78.1,
+    "Cyclist": 91.4
+  },
+  "official_APH3D_LEVEL_2": {
+    "Vehicle": 83.6,
+    "Pedestrian": 74.1,
+    "Cyclist": 87.4
+  },
+  "official_mAP_LEVEL_1": 87.3,
+  "official_mAP_LEVEL_2": 83.2,
+  "official_mAPH_LEVEL_1": 85.7,
+  "official_mAPH_LEVEL_2": 81.7,
+  "diagnostic_AP3D": {
+    "Vehicle": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "Pedestrian": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "Cyclist": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    }
+  },
+  "ckpt": "/home/frahman8/scratch/SGF_PortV2/waymo/Runs/agdpe_second_64331451/best.pt",
+  "tta": false
+}

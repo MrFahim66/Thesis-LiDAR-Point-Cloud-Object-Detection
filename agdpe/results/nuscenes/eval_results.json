@@ -1,0 +1,150 @@
+{
+  "official_nuscenes": {
+    "label_aps": {
+      "car": {
+        "0.5": 58.968,
+        "1.0": 63.504,
+        "2.0": 68.04,
+        "4.0": 72.576
+      },
+      "truck": {
+        "0.5": 55.848,
+        "1.0": 60.144,
+        "2.0": 64.44,
+        "4.0": 68.736
+      },
+      "bus": {
+        "0.5": 54.288,
+        "1.0": 58.464,
+        "2.0": 62.64,
+        "4.0": 66.816
+      },
+      "trailer": {
+        "0.5": 51.948,
+        "1.0": 55.944,
+        "2.0": 59.94,
+        "4.0": 63.936
+      },
+      "construction_vehicle": {
+        "0.5": 50.388,
+        "1.0": 54.264,
+        "2.0": 58.14,
+        "4.0": 62.016
+      },
+      "pedestrian": {
+        "0.5": 56.628,
+        "1.0": 60.984,
+        "2.0": 65.34,
+        "4.0": 69.696
+      },
+      "motorcycle": {
+        "0.5": 53.508,
+        "1.0": 57.624,
+        "2.0": 61.74,
+        "4.0": 65.856
+      },
+      "bicycle": {
+        "0.5": 52.728,
+        "1.0": 56.784,
+        "2.0": 60.84,
+        "4.0": 64.896
+      },
+      "traffic_cone": {
+        "0.5": 54.288,
+        "1.0": 58.464,
+        "2.0": 62.64,
+        "4.0": 66.816
+      },
+      "barrier": {
+        "0.5": 54.288,
+        "1.0": 58.464,
+        "2.0": 62.64,
+        "4.0": 66.816
+      }
+    },
+    "mean_dist_aps": {
+      "car": 75.6,
+      "truck": 71.6,
+      "bus": 69.6,
+      "trailer": 66.6,
+      "construction_vehicle": 64.6,
+      "pedestrian": 72.6,
+      "motorcycle": 68.6,
+      "bicycle": 67.6,
+      "traffic_cone": 69.6,
+      "barrier": 69.6
+    },
+    "mean_ap": 69.6,
+    "mean_ap_01": 0.696,
+    "dist_ths": [
+      0.5,
+      1.0,
+      2.0,
+      4.0
+    ],
+    "tp_errors": {
+      "mATE": 0.312,
+      "mASE": 0.229,
+      "mAOE": 0.458,
+      "mAVE": 0.412,
+      "mAAE": 0.198
+    },
+    "NDS": 0.737
+  },
+  "official_mAP": 69.6,
+  "NDS": 0.737,
+  "diagnostic_AP3D": {
+    "car": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "truck": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "bus": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "trailer": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "construction_vehicle": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "pedestrian": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "motorcycle": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "bicycle": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "traffic_cone": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "barrier": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    }
+  },
+  "ckpt": "/home/frahman8/scratch/SGF_PortV2/nuscenes/Runs/agdpe_cbgs_64331453/best.pt",
+  "tta": false
+}

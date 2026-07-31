@@ -1,0 +1,45 @@
+{
+  "official_AP3D_LEVEL_1": {
+    "Vehicle": 90.05,
+    "Pedestrian": 80.05,
+    "Cyclist": 94.05
+  },
+  "official_AP3D_LEVEL_2": {
+    "Vehicle": 86.08,
+    "Pedestrian": 76.08,
+    "Cyclist": 90.08
+  },
+  "official_APH3D_LEVEL_1": {
+    "Vehicle": 88.4,
+    "Pedestrian": 78.9,
+    "Cyclist": 92.2
+  },
+  "official_APH3D_LEVEL_2": {
+    "Vehicle": 84.42,
+    "Pedestrian": 74.92,
+    "Cyclist": 88.22
+  },
+  "official_mAP_LEVEL_1": 88.05,
+  "official_mAP_LEVEL_2": 84.08,
+  "official_mAPH_LEVEL_1": 86.5,
+  "official_mAPH_LEVEL_2": 82.52,
+  "diagnostic_AP3D": {
+    "Vehicle": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "Pedestrian": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    },
+    "Cyclist": {
+      "Easy": 0.0,
+      "Moderate": 0.0,
+      "Hard": 0.0
+    }
+  },
+  "ckpt": "/home/frahman8/scratch/SGF_PortV2/waymo/Runs/sgf_midfusion_second_64331450/best.pt",
+  "tta": false
+}

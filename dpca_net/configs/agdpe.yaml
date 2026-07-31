@@ -1,0 +1,68 @@
+# AG-DPE on nuScenes — OpenPCDet CBGS PP Multihead protocol.
+# Architecture: AG-DPE (from KITTI)
+# Training: OpenPCDet nuscenes_models/cbgs_pp_multihead.yaml (official)
+CLASS_NAMES:
+  - car
+  - truck
+  - bus
+  - trailer
+  - construction_vehicle
+  - pedestrian
+  - motorcycle
+  - bicycle
+  - traffic_cone
+  - barrier
+
+DATA_CONFIG:
+  _BASE_CONFIG_: cfgs/dataset_configs/nuscenes_dataset.yaml
+
+MODEL:
+  NAME: AGDPE
+  VFE:
+    NAME: PillarVFE
+    NUM_POINT_FEATURES: 9
+  BACKBONE:
+    NAME: AGDPEBackbone
+  DENSE_HEAD:
+    NAME: AGDPEHead
+    REG_ENCODING: v2
+
+# Post-processing (dataset-specific for nuScenes)
+POST_PROCESSING:
+  RECALL_THRESH_LIST: [0.3, 0.5, 0.7]
+  SCORE_THRESH: 0.005
+  EVAL_SCORE_THRESH: 0.05
+  OUTPUT_RAW_SCORE: false
+  EVAL_METRIC: nuscenes
+  NMS_CONFIG:
+    MULTI_CLASSES_NMS: true
+    NMS_TYPE: nms_gpu
+    NMS_THRESH: 0.2
+    NMS_PRE_MAXSIZE: 1000
+    NMS_POST_MAXSIZE: 83
+
+# Optimization — OpenPCDet CBGS schedule with KITTI-proven weight decay / warmup.
+OPTIMIZATION:
+  BATCH_SIZE_PER_GPU: 4
+  NUM_EPOCHS: 20
+  OPTIMIZER: adam_onecycle
+  LR: 0.001
+  WEIGHT_DECAY: 0.0001
+  MOMENTUM: 0.9
+  MOMS: [0.95, 0.85]
+  PCT_START: 0.2
+  DIV_FACTOR: 10
+  FINAL_DIV_FACTOR: 100
+  GRAD_NORM_CLIP: 10
+  # Additional SGF settings
+  BATCH_SIZE: 4
+  VAL_BATCH_SIZE: 8
+  NUM_WORKERS: 12
+  VAL_NUM_WORKERS: 6
+  VAL_INTERVAL: 999
+  AMP: false
+  EMA: true
+  EMA_DECAY: 0.999
+  SEED: 42
+
+OUTPUT_DIR: /home/frahman8/scratch/SGF_PortV2/nuscenes/Runs/agdpe_cbgs

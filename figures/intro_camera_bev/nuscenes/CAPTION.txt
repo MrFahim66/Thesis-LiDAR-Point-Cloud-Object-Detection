@@ -1,0 +1,1 @@
+Left: front camera with projected GT 3D boxes. Right: LiDAR in bird’s-eye view, colored by height Z (blue–cyan–green), with matching GT footprints for vehicles, pedestrians, and cyclists. nuScenes uses a 32-beam LiDAR with full 360° coverage (BEV cropped to ±50 m for density comparison).

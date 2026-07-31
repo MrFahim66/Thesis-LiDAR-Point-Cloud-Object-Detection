@@ -1,0 +1,11 @@
+# Ignore heavy / private artifacts
+scripts/
+**/__pycache__/
+**/*.pt
+**/*.pth
+**/.venv/
+**/_thesis_extract/
+**/*.npz
+**/cache/
+*.zip
+.DS_Store

@@ -1,0 +1,60 @@
+# Waymo Open Dataset — OpenPCDet-style base config (SECOND protocol).
+# Reference: openpcdet_ws/OpenPCDet/tools/cfgs/dataset_configs/waymo_dataset.yaml
+DATASET: WaymoDataset
+DATA_PATH: /home/frahman8/scratch/WaymoOpen
+CACHE_DIR: /home/frahman8/scratch/SGF_Port/waymo/cache/npz_v1
+SPLIT_NAME: training
+VAL_SPLIT_NAME: validation
+
+# Official OpenPCDet Waymo splits
+TRAIN_SPLIT: /home/frahman8/scratch/SGF_PortV2/waymo/splits/waymo_seg50_seed42_train.txt
+VAL_SPLIT: /home/frahman8/scratch/SGF_PortV2/waymo/splits/waymo_seg8_seed42_val.txt
+
+POINT_CLOUD_RANGE: [-75.2, -75.2, -2.0, 75.2, 75.2, 4.0]
+FOV_POINTS_ONLY: false
+
+# Voxel settings (OpenPCDet Waymo SECOND standard)
+VOXEL_SIZE: [0.10, 0.10, 0.15]
+MAX_POINTS_PER_VOXEL: 5
+MAX_NUMBER_OF_VOXELS:
+  train: 150000
+  test: 150000
+
+# Frame sampling — stride 1 uses the full seg50 split (~9.7k frames) so the
+# optimization regime approaches the KITTI recipe (≈150k steps) instead of the
+# ~29k steps that left training unconverged at stride 5.
+FRAME_STRIDE:
+  train: 1
+  test: 1
+
+# GT-database copy-paste augmentation (KITTI-proven; per-frame target counts).
+# DB is built offline from the npz cache via tools/build_gt_database.py.
+GT_SAMPLING:
+  ENABLED: true
+  DB_PATH: /home/frahman8/scratch/SGF_Port/waymo/cache/waymo_gt_database.pkl
+  MIN_POINTS: 5
+  SAMPLE_GROUPS:
+    Vehicle: 20
+    Pedestrian: 12
+    Cyclist: 12
+
+# OpenPCDet-style augmentation (random_world_flip, rotation, scaling)
+DATA_AUGMENTOR:
+  DISABLE_AUG_LIST: ['placeholder']
+  AUG_CONFIG_LIST:
+    - NAME: random_world_flip
+      ALONG_AXIS_LIST: ['x', 'y']
+    - NAME: random_world_rotation
+      WORLD_ROT_ANGLE: [-0.78539816, 0.78539816]  # ±45°
+    - NAME: random_world_scaling
+      WORLD_SCALE_RANGE: [0.95, 1.05]
+
+# Number of sweeps (Waymo uses single sweep like KITTI)
+NUM_SWEEPS: 1
+POINT_FEATURE_ENCODING:
+  encoding_type: absolute_coordinates_encoding
+  used_feature_list: ['x', 'y', 'z', 'intensity', 'elongation']
+  src_feature_list: ['x', 'y', 'z', 'intensity', 'elongation']
+  num_point_features: 5
+
+REQUIRE_CACHE: true

@@ -1,0 +1,43 @@
+{
+  "AP3D": {
+    "Car": {
+      "Easy": 86.70853434453868,
+      "Moderate": 82.12554214309795,
+      "Hard": 79.76586598477272
+    },
+    "Pedestrian": {
+      "Easy": 79.4931550242572,
+      "Moderate": 78.78430933047305,
+      "Hard": 77.14129463934435
+    },
+    "Cyclist": {
+      "Easy": 82.58875467241444,
+      "Moderate": 81.45217964518562,
+      "Hard": 79.19770307826508
+    }
+  },
+  "APBEV": {
+    "Car": {
+      "Easy": 93.84480970642268,
+      "Moderate": 91.9409074569258,
+      "Hard": 89.68029004129437
+    },
+    "Pedestrian": {
+      "Easy": 81.3076022457682,
+      "Moderate": 79.91363890514768,
+      "Hard": 78.86208024076011
+    },
+    "Cyclist": {
+      "Easy": 83.42882808342567,
+      "Moderate": 82.27557690022023,
+      "Hard": 79.89113335293487
+    }
+  },
+  "mAP3D_Mod": 80.7873437062522,
+  "ckpt": "/home/frahman8/scratch/SGF_CleanBundle_2026-06-03/fusion/MidFusion/Runs/62292752//best.pt",
+  "tta": false,
+  "two_stage": false,
+  "soft_nms": false,
+  "val_split": "/home/frahman8/scratch/SGF_CleanBundle_2026-06-03/datasets/kitti/kitti_pool80_seed42_val.txt",
+  "ablate_density_gate": false
+}

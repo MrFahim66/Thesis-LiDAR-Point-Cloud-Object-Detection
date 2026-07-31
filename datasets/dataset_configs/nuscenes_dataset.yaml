@@ -1,0 +1,65 @@
+# nuScenes v1.0-trainval — OpenPCDet-style base config (CBGS PP Multihead protocol).
+# Reference: openpcdet_ws/OpenPCDet/tools/cfgs/dataset_configs/nuscenes_dataset.yaml
+DATASET: NuScenesDataset
+DATA_PATH: /home/frahman8/scratch/NuScenes/nuScenes
+VERSION: v1.0-trainval
+CACHE_DIR: /home/frahman8/scratch/SGF_Port/nuscenes/cache/npz_sweeps10
+
+# Official OpenPCDet nuScenes splits
+TRAIN_SPLIT: /home/frahman8/scratch/SGF_PortV2/nuscenes/splits/nusc_trainval_train.txt
+VAL_SPLIT: /home/frahman8/scratch/SGF_PortV2/nuscenes/splits/nusc_trainval_val.txt
+
+POINT_CLOUD_RANGE: [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]
+FOV_POINTS_ONLY: false
+
+# Voxel settings (OpenPCDet nuScenes standard)
+VOXEL_SIZE: [0.20, 0.20, 0.20]
+MAX_POINTS_PER_VOXEL: 20
+MAX_NUMBER_OF_VOXELS:
+  train: 30000
+  test: 30000
+
+# OpenPCDet nuScenes: CBGS class-balanced resampling (critical for 10 classes)
+BALANCED_RESAMPLING: true
+
+# GT-database copy-paste augmentation (per-frame target counts). Common classes
+# (car/pedestrian) are usually already above target so few are added; rare
+# classes (trailer/construction/bicycle/cone) get boosted. DB built offline via
+# tools/build_gt_database.py.
+GT_SAMPLING:
+  ENABLED: true
+  DB_PATH: /home/frahman8/scratch/SGF_Port/nuscenes/cache/nuscenes_gt_database.pkl
+  MIN_POINTS: 5
+  SAMPLE_GROUPS:
+    car: 8
+    truck: 5
+    bus: 4
+    trailer: 4
+    construction_vehicle: 5
+    pedestrian: 8
+    motorcycle: 5
+    bicycle: 5
+    traffic_cone: 6
+    barrier: 6
+
+# OpenPCDet-style augmentation (milder than Waymo)
+DATA_AUGMENTOR:
+  DISABLE_AUG_LIST: ['placeholder']
+  AUG_CONFIG_LIST:
+    - NAME: random_world_flip
+      ALONG_AXIS_LIST: ['x', 'y']
+    - NAME: random_world_rotation
+      WORLD_ROT_ANGLE: [-0.3925, 0.3925]  # ±22.5° (milder for nuScenes)
+    - NAME: random_world_scaling
+      WORLD_SCALE_RANGE: [0.95, 1.05]
+
+# nuScenes uses 10 sweeps for training (OpenPCDet CBGS); val cache is _s1.npz
+NUM_SWEEPS: 10
+VAL_NUM_SWEEPS: 1
+POINT_FEATURE_ENCODING:
+  encoding_type: absolute_coordinates_encoding
+  used_feature_list: ['x', 'y', 'z', 'intensity', 'timestamp']
+  src_feature_list: ['x', 'y', 'z', 'intensity', 'timestamp']
+  num_point_features: 5
+
+REQUIRE_CACHE: true
